@@ -36,4 +36,4 @@ jobs:
       - name: Deploy
         run: |
           git pull
-          mkdocs gh-deploy --config-file mkdocs.yml
+          mkdocs gh-deploy
