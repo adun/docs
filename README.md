@@ -24,7 +24,7 @@ $ pip install --upgrade pip
 
 ## Installation
 
-Install 
+Install all packages and dependencies using pip requirements file
 ```
 pip install -r requirements.txt
 ```
