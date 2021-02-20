@@ -197,9 +197,99 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Raspberry Pi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Raspberry Pi
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#post-installation-tweaks" class="md-nav__link">
+    Post installation tweaks
+  </a>
+  
+    <nav class="md-nav" aria-label="Post installation tweaks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-packages" class="md-nav__link">
+    Update packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-hostname" class="md-nav__link">
+    Change hostname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-firewall" class="md-nav__link">
+    Setup firewall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adguard-home" class="md-nav__link">
+    AdGuard Home
+  </a>
+  
+    <nav class="md-nav" aria-label="AdGuard Home">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-nginx-as-a-reverse-proxy-server-for-adguard-home" class="md-nav__link">
+    Configure Nginx as a reverse proxy server for AdGuard Home
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-dns-blocklists" class="md-nav__link">
+    Custom DNS blocklists
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -219,6 +309,168 @@
                 
                 
                 <h1 id="raspberry-pi">Raspberry Pi</h1>
+<h2 id="post-installation-tweaks">Post installation tweaks</h2>
+<h3 id="update-packages">Update packages</h3>
+<pre><code>sudo apt update &amp;&amp; sudo apt upgrade -y
+</code></pre>
+<h3 id="change-hostname">Change hostname</h3>
+<pre><code>hostnamectl set-hostname &lt;NEW_HOSTNAME&gt;
+</code></pre>
+<p>And add an entry to <code>/etc/hosts</code></p>
+<pre><code>127.0.0.1    new-hostname
+</code></pre>
+<h3 id="setup-firewall">Setup firewall</h3>
+<p>Set default rules and allow SSH connexion through the firewall</p>
+<pre><code>sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw enable
+</code></pre>
+<h2 id="adguard-home">AdGuard Home</h2>
+<p><a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Getting-Started">AdGuard wiki</a></p>
+<h3 id="installation">Installation</h3>
+<p>Download and extract Linux ARM: 32-bit ARMv6 (recommended for Raspberry Pi)</p>
+<pre><code>wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_armv6.tar.gz
+tar -xf AdGuardHome_linux_armv6.tar.gz
+</code></pre>
+<p>Enable firewall temporary rules to access AdGuard initial configuration wizard on port <code>3000</code></p>
+<pre><code>sudo ufw allow 3000
+</code></pre>
+<p>Run AdGuard and configure until the last step shutdown the app using CTRL+C twice.</p>
+<pre><code>sudo ./AdGuardHome
+</code></pre>
+<p>Display ufw temporary firewall rules and remove rule by rule number</p>
+<pre><code>sudo ufw status numbered
+sudo ufw delete {rule-number-here}
+</code></pre>
+<p>Install AdGuard service</p>
+<pre><code>sudo ./AdGuardHome -s install
+</code></pre>
+<p>Add rule to allow HTTP connections</p>
+<pre><code>sudo ufw allow http
+</code></pre>
+<p>Add rules to allow DNS connections</p>
+<pre><code>sudo ufw allow 53/tcp
+sudo ufw allow 53/udp
+</code></pre>
+<h3 id="configure-nginx-as-a-reverse-proxy-server-for-adguard-home">Configure Nginx as a reverse proxy server for AdGuard Home</h3>
+<p>Edit AdGuard configuration to bind the service to another port than HTTP/80.</p>
+<p>Change configuration to another port: <code>bind_host: 127.0.0.1</code> and <code>bind_port: 81</code> and restart the service.</p>
+<pre><code>sudo nano AdGuardHome.yaml
+sudo ./AdGuardHome -s restart
+</code></pre>
+<p>Install Nginx</p>
+<pre><code>sudo apt install nginx -y
+</code></pre>
+<p>Sample nginx reverse proxy configuration</p>
+<pre><code>location /agh/ {
+    proxy_pass http://localhost:81/;
+    proxy_redirect / /agh/;
+    proxy_cookie_path / /agh/;
+}
+</code></pre>
+<p>Add the reverse proxy to Nginx configuration and restart the service</p>
+<pre><code>sudo nano /etc/nginx/sites-available/default
+sudo systemctl restart nginx
+</code></pre>
+<p>Access AdGuard Home dashboard</p>
+<pre><code>SERVER_IP/adg
+</code></pre>
+<h3 id="custom-dns-blocklists">Custom DNS blocklists</h3>
+<ul>
+<li>
+<p>SebSauvage Hostfile
+https://sebsauvage.net/hosts/hosts-adguard</p>
+</li>
+<li>
+<p>AdGuard Social Media filter
+https://filters.adtidy.org/extension/chromium/filters/4.txt</p>
+</li>
+<li>
+<p>AdGuard Tracking Protection filter
+https://filters.adtidy.org/extension/chromium/filters/3.txt</p>
+</li>
+<li>
+<p>AdGuard Base filter
+https://filters.adtidy.org/extension/chromium/filters/2.txt</p>
+</li>
+<li>
+<p>AdGuard Annoyances filter
+https://filters.adtidy.org/extension/chromium/filters/14.txt</p>
+</li>
+<li>
+<p>Filter unblocking search ads and self-promotion
+https://filters.adtidy.org/extension/chromium/filters/10.txt</p>
+</li>
+<li>
+<p>AdGuard Russian filter
+https://filters.adtidy.org/extension/chromium/filters/1.txt</p>
+</li>
+<li>
+<p>AdGuard German filter
+https://filters.adtidy.org/extension/chromium/filters/6.txt</p>
+</li>
+<li>
+<p>AdGuard French filter
+https://filters.adtidy.org/extension/chromium/filters/16.txt</p>
+</li>
+<li>
+<p>AdGuard Japanese filter
+https://filters.adtidy.org/extension/chromium/filters/7.txt</p>
+</li>
+<li>
+<p>AdGuard Mobile Ads filter
+https://filters.adtidy.org/extension/chromium/filters/11.txt</p>
+</li>
+<li>
+<p>AdGuard DNS filter
+https://filters.adtidy.org/extension/chromium/filters/15.txt</p>
+</li>
+<li>
+<p>WaLLy3K's Blacklist
+https://v.firebog.net/hosts/static/w3kbl.txt</p>
+</li>
+<li>
+<p>ZeroDot1 CoinBlockerLists
+https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser</p>
+</li>
+<li>
+<p>Fademind's Risky Hosts
+https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts</p>
+</li>
+<li>
+<p>Spam404
+https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt</p>
+</li>
+<li>
+<p>DigitalSide Threat-Intel
+https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt</p>
+</li>
+<li>
+<p>Easy privacy
+https://v.firebog.net/hosts/Easyprivacy.txt</p>
+</li>
+<li>
+<p>Quidsup Tracker
+https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt</p>
+</li>
+<li>
+<p>Blocklist Scam
+https://blocklist.site/app/dl/scam</p>
+</li>
+<li>
+<p>Blocklist Fraud
+https://blocklist.site/app/dl/fraud</p>
+</li>
+<li>
+<p>Blocklist Phishing
+https://blocklist.site/app/dl/phishing</p>
+</li>
+<li>
+<p>Blocklist Ads
+https://blocklist.site/app/dl/ads</p>
+</li>
+</ul>
                 
               
               
