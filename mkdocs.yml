@@ -10,3 +10,5 @@ theme:
 nav:
   - Home: 'index.md'
   - Raspberry Pi: 'rpi.md'
+  - Programming:
+    - 'Clean Code': 'programming/clean_code.md'
