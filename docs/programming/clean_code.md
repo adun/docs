@@ -1,353 +1,245 @@
-Resources:
+# Clean Coding Principles in C#
 
-Code Complete 2
-Clean Code
-The Pragmatic Programmer
-Why Writing Clean Code Matters: Resources
-0:27
+## Resources
+- "Code Complete 2" by *Steve McConnell*
+- "Clean Code: A Handbook of Agile Software Craftsmanship" by *Robert C. Martin*
+- "The Pragmatic Programmer: From Journeyman to Master" by *Andrew Hunt & David Thomas*
 
-delete
+## Three Clean Code Principles
 
-edit
-Select the right tool for the job
+1. Select the right tool for the job
+2. High signal to noise ratio, clean code optimizes for signal and strives to remove any noise that the reader can easily read the logic and understand the intent.
+3. Self-documenting, write code in such a clear and expressive style that no documentation is needed at all.
 
-High signal to noise ratio, clean code optimizes for signal and strives to remove any noise that the reader can easily read the logic and understand the intent.
+## Maximizing Signal to Noise
 
-Self-documenting, write code in such a clear and expressive style that no documentation is needed at all.
+### Signal
 
-Clean Coding Principles: Three Clean Code Principles
-0:22
-
-delete
-
-edit
 Signal = code that follows the "TED rule".
+- Terse: code shouldn't be excessively wordy
+- Expressive: clear what the code is trying to do
+- Does one thing: the code should have a clear responsability
 
-Terse: code shouldn't be excessively wordy
-Expressive: clear what the code is trying to do
-Does one thing: the code should have a clear responsability
-Clean Coding Principles: Maximizing Signal to Noise
-0:34
+### Noise
 
-delete
-
-edit
 Noise = code that reduce readability and hinder maintenance
+- High cyclomatic complexity
+- Huge classes
+- Excessive indentation
+- Long methods
+- Zombie code
+- Repetition
+- Unnecessary comments
+- No whitespace
+- Overly verbose
+- Poorly named structures
 
-High cyclomatic complexity
-Huge classes
-Excessive indentation
-Long methods
-Zombie code
-Repetition
-Unnecessary comments
-No whitespace
-Overly verbose
-Poorly named structures
-Clean Coding Principles: Maximizing Signal to Noise
-1:10
-
-delete
-
-edit
-The "rule of 7" effects:
+### The "rule of 7" effects:
 
 Number of parameters per method
 Number of methods in a class
 Number of variables currently in scope
-Clean Coding Principles: Maximizing Signal to Noise
-1:50
 
-delete
+## DRY principle: Don't Repeat Yourself
 
-edit
-DRY principle
-
--> Don't Repeat Yourself
+### Databases
 
 Database are normalized in an effort to assure each piece of data is defined in a single place. This assures that the database operates efficiently, consistently and eases maintenance.
 
-Clean Coding Principles: Don't Repeat Yourself
-0:21
-
-delete
-
-edit
-Duplication Issues
+### Duplication Issues
 
 Copy paste is often a design problem
+- Decreases signal to noise ratio
+- Increases the number of lines of code
+- Creates a maintenance problem
 
-Decreases signal to noise ratio
-Increases the number of lines of code
-Creates a maintenance problem
-Clean Coding Principles: Don't Repeat Yourself
-1:00
+## Self-documenting code
 
-delete
+1. Clear intent: clearly express the intent so that readers understand exactly what the programmer is trying to accomplish
+2. Layers of abstraction: should be used so that the problem domain can be considered and walked through at different levels of detail
+3. Format for readability: formatting in a friendly and consistent manner will optimize the reading experience
+4. Favor code over comments, favoring code over comments when possible will assure that the code is as expressive as it can be without relying on comments to explain away unnecessary ambiguity
 
-edit
-Self-documenting code
-
-Clear intent: clearly express the intent so that readers understand exactly what the programmer is trying to accomplish
-Layers of abstraction: should be used so that the problem domain can be considered and walked through at different levels of detail
-Format for readability: formatting in a friendly and consistent manner will optimize the reading experience
-Favor code over comments, favoring code over comments when possible will assure that the code is as expressive as it can be without relying on comments to explain away unnecessary ambiguity
-Clean Coding Principles: Self-documenting Code
-0:47
-
-delete
-
-edit
 Self-documenting code idealy eliminate the need for out-of-band documentation (such as JavaDoc, wikis, ...)
 
-Clean Coding Principles: Self-documenting Code
-1:32
+## Naming classes
 
-delete
+1. Specific names encourage small, cohesive classes
+2. A well-design class should have a single responsibility, and its name should help reflect that
+3. Class names are noun not verbs
+4. Avoid Generic suffixes (*manager, *processor, Common, Utility)
+5. Quality of the class name ?
+   Ask the following question: *is an instance of [this] logical ?*
 
-edit
-Naming classes
+## Naming Methods
 
-Specific names encourage small, cohesive classes
-A well-design class should have a single responsibility, and its name should help reflect that
-class names are noun not verbs
-avoid Generic suffixes (*manager, *processor, Common, Utility)
-quality of the name: ask the following question :
+With a good method name, the reader doesn't need to read the method to know what it does.
 
-is an instance of this logical ?
-Naming: Naming Classes
-1:18
-
-delete
-
-edit
-Naming Methods
-
-with a good method name, the reader doesn't need to read the method to know what it does
-Naming: Naming Methods
-1:17
-
-delete
-
-edit
-Rubber ducking
+## Rubber ducking
 
 Verbalizing aids creativity, explain what a class does out loud
-Explain it to the rubber duck
-Naming: Rubber Ducking
-0:50
+`Explain it to the rubber duck`
 
-delete
+## Booleans
 
-edit
-well-named boolean should sound like a true/false question
+### Naming Booleans
 
-not a command like start, open, status
+Well-named boolean should sound like a true/false question:
+```
 isOpen, done, isActive, loggedIn
-Naming: Naming Booleans
-0:14
+```
+Not like a command:
+```
+start, open, status
+```
 
-delete
+### Naming: Strive for Symmetry
 
-edit
-Use symmetrical names like on/off, fast/slow unlike quick/slow, on/disable
+Use symmetrical names like:
+```
+on/off, fast/slow
+```
+unlike:
+```
+quick/slow, on/disable
+```
 
-Naming: Strive for Symmetry
-0:35
+### Boolean Comparison
 
-delete
+Compare boolean implicitly, don't do:
+```csharp
+if (loggedIn == true) { ... }
+```
+do:
+```csharp
+if (loggedIn) { ... }
+```
 
-edit
-Compare boolean implicitly, don't do
+### Boolean Assignments
 
-if (loggedIn == true)
-Writing Conditionals That Convey Intent: Boolean Comparisons
-0:28
-
-delete
-
-edit
 Assign boolean implicitly, do:
+```csharp
+bool goingToChipotleForLunch = cashInWallet > 6.00;
+```
 
-bool goingToChipotleForLunch = cashInWallet > 6.00
-Writing Conditionals That Convey Intent: Boolean Assignments
-1:02
+### Write positive boolean conditions
 
-delete
-
-edit
 Be positive (don't be anti-negative), don't do:
-
+```csharp
 if (!isNotLoggedIn)
-Writing Conditionals That Convey Intent: Prefer Positive Conditionals
-0:08
+```
 
-delete
+### Ternary expressions
 
-edit
 Don't use chaining or nesting ternaries
 
-Writing Conditionals That Convey Intent: Ternaries Are Beautiful
-2:08
+### Be Strongly Typed
 
-delete
+Be strongly typed, not "stringly typed"
 
-edit
-Be strongly typed, not "stringly typed", don't
+Don't use strings:
+```csharp
+if (employeeType == "manager") { ... }
+```
 
-if (employeeType == "manager")
-use enums and do
-if (employee.type == EmployeeType.Manager)
-Writing Conditionals That Convey Intent: Be Strongly Typed
-0:14
+Use enums:
+```csharp
+if (employee.type == EmployeeType.Manager) { ... }
+```
 
-delete
+### Magic numbers, magic strings
 
-edit
-Magic numbers are to be avoided because they require careful review of the context and they expect the reader to fill gaps
+Magic numbers/strings are to be avoided because they require careful review of the context and they expect the reader to fill gaps.
 
-Writing Conditionals That Convey Intent: Avoid Magic Numbers
-0:59
 
-delete
+### Handling Complex Conditionals
 
-edit
-Complex conditionals,
+- Use intermediate variables
+- Encapsulate via function
 
-Use intermediate variables
-Encapsulate via function
-Writing Conditionals That Convey Intent: Handling Complex Conditionals
-0:33
+### Prefer Polymorphism over Enums
 
-delete
+- Favor polymorphism over Switch statement.
+- Each class knows how to handle its unique behaviors.
 
-edit
-Favor polymorphism over Switch statement.
-Each class knows how to handle its unique behaviors.
+## Clean methods and functions
 
-Writing Conditionals That Convey Intent: Prefer Polymorphism over Enums
-1:31
+### Function vs Method
 
-delete
+Both methods and functions are pieces of code, called by name. Methods are associated with an object.
 
-edit
-Function vs Method
+### When to create of function?
+- Duplication
+- Indentation
+- Unclear intent
+- Help maintain single responsability
 
-Both methods and functions are pieces of code, called by name.
-Methods are associated with an object
-Writing Clean Methods: When to Create a Function
-0:18
+### Arrow Code
 
-delete
+Arrow code refers to excessive indentation levels. Arrow code is a sign that the code has a high cyclomatic complexity (a measure of the number of paths through code).
 
-edit
-When to create of function
+### Fail fast
 
-duplication
-indentation
-unclear intent
-help maintain single responsability
-Writing Clean Methods: When to Create a Function
-1:04
+1. Add guard clauses to throw an exception as soon as an unexpected situation that can't be handled occurs.
+2. Guard clauses ensures a method inputs are valid before continuing processing.
+3. Add default to switch statements and throw exceptions to fail fast
 
-delete
+### Return early
 
-edit
-Arrow code refers to excessive indentation levels.
+> "Use a return when it enhances readability... In certain routines, once you know the answer... not returning immediately means that you have to write more code."
+> *Code Complete, Steve McConnell*
 
-Arrow code is a sign that the code has a high cyclomatic complexity (a measure of the number of paths through code)
-Writing Clean Methods: Why Create a Method - Reason 2: Excessive Indentation
-0:14
+### Parameters
 
-delete
-
-edit
-Fail fast
-
-Add guard clauses to throw an exception as soon as an unexpected situation that can't be handled occurs
-Guard clauses ensures a method inputs are valid before continuing processing.
-add default to switch statements and throw exceptions to fail fast
-Writing Clean Methods: Excessive Indentation - Solution 2: Fail Fast
-1:00
-
-delete
-
-edit
-"Use a return when it enhances readability... In certain routines, once you know the answer... not returning immediately means that you have to write more code."
-Steve McConnell, Code Complete
-
-Writing Clean Methods: Excessive Indentation - Solution 3: Return Early
-1:39
-
-delete
-
-edit
 A high number of parameters makes a function harder to understand. It's a sign the function is doing too much.
 Strive for 0-2 parameters, this will make the code easier to read, understand and test.
 
-Writing Clean Methods: How Many Parameters?
-0:07
+### Signs a Method Is too Long
 
-delete
+- Whitespace and comments
+- Scrolling required
+- Easy to name with a single define task
+- Multiple conditionals
+- Many layers of abstraction
 
-edit
-Sign a function is too long:
 
-Whitespace and comments
-Scrolling required
-Easy to name with a single define task
-Multiple conditionals
-Many layers of abstraction
-Writing Clean Methods: Signs a Method Is too Long
-0:32
+## Handling Exceptions
 
-delete
+Exception types:
 
-edit
-Exception types
+### 1. Unrecoverable
+- Null reference
+- File not found
+- Access denied
 
-Unrecoverable
-Null reference
-File not found
-Access denied
-Recoverable
-Retry connection
-Try a different file
-Wait and try again
-Ignorable
-Logging
+### 2. Recoverable
+- Retry connection
+- Try a different file
+- Wait and try again
+
+### 3. Ignorable
+- Logging
+
 The correct behavior for a broken application is to crash immediately.
+`Fail fast. Fail loud`
 
-Fail fast. Fail loud
-Writing Clean Methods: Handling Exceptions
-0:26
 
-delete
+## Clean classes
 
-edit
-When to create a class
+### When to Create a Class?
 
-New concept : abstract or real world
-Low cohesion : methods should relate
-Promote reuse : small and targeted
-Reduce complexity : solve once, hide away the complexity
-Clarify parameters : Identify a group of data
-Writing Clean Classes: When to Create a Class
-1:12
+- New concept : abstract or real world
+- Low cohesion : methods should relate
+- Promote reuse : small and targeted
+- Reduce complexity : solve once, hide away the complexity
+- Clarify parameters : Identify a group of data
 
-delete
+### Proximity Principle
 
-edit
-Proximity Principle
+- Make code read top to bottom when possible
+- Keep related actions together
 
-Make code read top to bottom when possible
-Keep related actions together
-Writing Clean Classes: The Proximity Principle
-0:53
+## The boy scout rule
 
-delete
-
-edit
-The boy scout rule:
-Leave the code you're editing a little better than you found it
-Robert C. Martin
+> "Leave the code you're editing a little better than you found it"
+> *Clean Code, Robert C. Martin*
