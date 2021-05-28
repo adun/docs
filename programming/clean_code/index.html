@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -61,6 +61,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#clean-coding-principles-in-c" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -227,10 +232,351 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Clean Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Clean Code
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-clean-code-principles" class="md-nav__link">
+    Three Clean Code Principles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maximizing-signal-to-noise" class="md-nav__link">
+    Maximizing Signal to Noise
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximizing Signal to Noise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal" class="md-nav__link">
+    Signal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise" class="md-nav__link">
+    Noise
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-rule-of-7-effects" class="md-nav__link">
+    The "rule of 7" effects:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dry-principle-dont-repeat-yourself" class="md-nav__link">
+    DRY principle: Don't Repeat Yourself
+  </a>
+  
+    <nav class="md-nav" aria-label="DRY principle: Don't Repeat Yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    Databases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplication-issues" class="md-nav__link">
+    Duplication Issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-documenting-code" class="md-nav__link">
+    Self-documenting code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-classes" class="md-nav__link">
+    Naming classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-methods" class="md-nav__link">
+    Naming Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rubber-ducking" class="md-nav__link">
+    Rubber ducking
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#booleans" class="md-nav__link">
+    Booleans
+  </a>
+  
+    <nav class="md-nav" aria-label="Booleans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-booleans" class="md-nav__link">
+    Naming Booleans
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-strive-for-symmetry" class="md-nav__link">
+    Naming: Strive for Symmetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-comparison" class="md-nav__link">
+    Boolean Comparison
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-assignments" class="md-nav__link">
+    Boolean Assignments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-positive-boolean-conditions" class="md-nav__link">
+    Write positive boolean conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ternary-expressions" class="md-nav__link">
+    Ternary expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#be-strongly-typed" class="md-nav__link">
+    Be Strongly Typed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-numbers-magic-strings" class="md-nav__link">
+    Magic numbers, magic strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-complex-conditionals" class="md-nav__link">
+    Handling Complex Conditionals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefer-polymorphism-over-enums" class="md-nav__link">
+    Prefer Polymorphism over Enums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-methods-and-functions" class="md-nav__link">
+    Clean methods and functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean methods and functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-vs-method" class="md-nav__link">
+    Function vs Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-create-of-function" class="md-nav__link">
+    When to create of function?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrow-code" class="md-nav__link">
+    Arrow Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail-fast" class="md-nav__link">
+    Fail fast
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-early" class="md-nav__link">
+    Return early
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signs-a-method-is-too-long" class="md-nav__link">
+    Signs a Method Is too Long
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-exceptions" class="md-nav__link">
+    Handling Exceptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-unrecoverable" class="md-nav__link">
+    1. Unrecoverable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-recoverable" class="md-nav__link">
+    2. Recoverable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ignorable" class="md-nav__link">
+    3. Ignorable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-classes" class="md-nav__link">
+    Clean classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-create-a-class" class="md-nav__link">
+    When to Create a Class?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proximity-principle" class="md-nav__link">
+    Proximity Principle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-boy-scout-rule" class="md-nav__link">
+    The boy scout rule
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -255,259 +601,196 @@
               
                 
                 
-                  <h1>Clean Code</h1>
-                
-                <p>Code Complete 2
-Clean Code
-The Pragmatic Programmer
-Why Writing Clean Code Matters: Resources
-0:27</p>
-<p>delete</p>
-<p>edit
-Select the right tool for the job</p>
-<p>High signal to noise ratio, clean code optimizes for signal and strives to remove any noise that the reader can easily read the logic and understand the intent.</p>
-<p>Self-documenting, write code in such a clear and expressive style that no documentation is needed at all.</p>
-<p>Clean Coding Principles: Three Clean Code Principles
-0:22</p>
-<p>delete</p>
-<p>edit
-Signal = code that follows the "TED rule".</p>
-<p>Terse: code shouldn't be excessively wordy
-Expressive: clear what the code is trying to do
-Does one thing: the code should have a clear responsability
-Clean Coding Principles: Maximizing Signal to Noise
-0:34</p>
-<p>delete</p>
-<p>edit
-Noise = code that reduce readability and hinder maintenance</p>
-<p>High cyclomatic complexity
-Huge classes
-Excessive indentation
-Long methods
-Zombie code
-Repetition
-Unnecessary comments
-No whitespace
-Overly verbose
-Poorly named structures
-Clean Coding Principles: Maximizing Signal to Noise
-1:10</p>
-<p>delete</p>
-<p>edit
-The "rule of 7" effects:</p>
+                <h1 id="clean-coding-principles-in-c">Clean Coding Principles in C</h1>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>"Code Complete 2" by <em>Steve McConnell</em></li>
+<li>"Clean Code: A Handbook of Agile Software Craftsmanship" by <em>Robert C. Martin</em></li>
+<li>"The Pragmatic Programmer: From Journeyman to Master" by <em>Andrew Hunt &amp; David Thomas</em></li>
+</ul>
+<h2 id="three-clean-code-principles">Three Clean Code Principles</h2>
+<ol>
+<li>Select the right tool for the job</li>
+<li>High signal to noise ratio, clean code optimizes for signal and strives to remove any noise that the reader can easily read the logic and understand the intent.</li>
+<li>Self-documenting, write code in such a clear and expressive style that no documentation is needed at all.</li>
+</ol>
+<h2 id="maximizing-signal-to-noise">Maximizing Signal to Noise</h2>
+<h3 id="signal">Signal</h3>
+<p>Signal = code that follows the "TED rule".
+- Terse: code shouldn't be excessively wordy
+- Expressive: clear what the code is trying to do
+- Does one thing: the code should have a clear responsability</p>
+<h3 id="noise">Noise</h3>
+<p>Noise = code that reduce readability and hinder maintenance
+- High cyclomatic complexity
+- Huge classes
+- Excessive indentation
+- Long methods
+- Zombie code
+- Repetition
+- Unnecessary comments
+- No whitespace
+- Overly verbose
+- Poorly named structures</p>
+<h3 id="the-rule-of-7-effects">The "rule of 7" effects:</h3>
 <p>Number of parameters per method
 Number of methods in a class
-Number of variables currently in scope
-Clean Coding Principles: Maximizing Signal to Noise
-1:50</p>
-<p>delete</p>
-<p>edit
-DRY principle</p>
-<p>-&gt; Don't Repeat Yourself</p>
+Number of variables currently in scope</p>
+<h2 id="dry-principle-dont-repeat-yourself">DRY principle: Don't Repeat Yourself</h2>
+<h3 id="databases">Databases</h3>
 <p>Database are normalized in an effort to assure each piece of data is defined in a single place. This assures that the database operates efficiently, consistently and eases maintenance.</p>
-<p>Clean Coding Principles: Don't Repeat Yourself
-0:21</p>
-<p>delete</p>
-<p>edit
-Duplication Issues</p>
-<p>Copy paste is often a design problem</p>
-<p>Decreases signal to noise ratio
-Increases the number of lines of code
-Creates a maintenance problem
-Clean Coding Principles: Don't Repeat Yourself
-1:00</p>
-<p>delete</p>
-<p>edit
-Self-documenting code</p>
-<p>Clear intent: clearly express the intent so that readers understand exactly what the programmer is trying to accomplish
-Layers of abstraction: should be used so that the problem domain can be considered and walked through at different levels of detail
-Format for readability: formatting in a friendly and consistent manner will optimize the reading experience
-Favor code over comments, favoring code over comments when possible will assure that the code is as expressive as it can be without relying on comments to explain away unnecessary ambiguity
-Clean Coding Principles: Self-documenting Code
-0:47</p>
-<p>delete</p>
-<p>edit
-Self-documenting code idealy eliminate the need for out-of-band documentation (such as JavaDoc, wikis, ...)</p>
-<p>Clean Coding Principles: Self-documenting Code
-1:32</p>
-<p>delete</p>
-<p>edit
-Naming classes</p>
-<p>Specific names encourage small, cohesive classes
-A well-design class should have a single responsibility, and its name should help reflect that
-class names are noun not verbs
-avoid Generic suffixes (<em>manager, </em>processor, Common, Utility)
-quality of the name: ask the following question :</p>
-<p>is an instance of this logical ?
-Naming: Naming Classes
-1:18</p>
-<p>delete</p>
-<p>edit
-Naming Methods</p>
-<p>with a good method name, the reader doesn't need to read the method to know what it does
-Naming: Naming Methods
-1:17</p>
-<p>delete</p>
-<p>edit
-Rubber ducking</p>
+<h3 id="duplication-issues">Duplication Issues</h3>
+<p>Copy paste is often a design problem
+- Decreases signal to noise ratio
+- Increases the number of lines of code
+- Creates a maintenance problem</p>
+<h2 id="self-documenting-code">Self-documenting code</h2>
+<ol>
+<li>Clear intent: clearly express the intent so that readers understand exactly what the programmer is trying to accomplish</li>
+<li>Layers of abstraction: should be used so that the problem domain can be considered and walked through at different levels of detail</li>
+<li>Format for readability: formatting in a friendly and consistent manner will optimize the reading experience</li>
+<li>Favor code over comments, favoring code over comments when possible will assure that the code is as expressive as it can be without relying on comments to explain away unnecessary ambiguity</li>
+</ol>
+<p>Self-documenting code idealy eliminate the need for out-of-band documentation (such as JavaDoc, wikis, ...)</p>
+<h2 id="naming-classes">Naming classes</h2>
+<ol>
+<li>Specific names encourage small, cohesive classes</li>
+<li>A well-design class should have a single responsibility, and its name should help reflect that</li>
+<li>Class names are noun not verbs</li>
+<li>Avoid Generic suffixes (<em>manager, </em>processor, Common, Utility)</li>
+<li>Quality of the class name ?
+   Ask the following question: <em>is an instance of [this] logical ?</em></li>
+</ol>
+<h2 id="naming-methods">Naming Methods</h2>
+<p>With a good method name, the reader doesn't need to read the method to know what it does.</p>
+<h2 id="rubber-ducking">Rubber ducking</h2>
 <p>Verbalizing aids creativity, explain what a class does out loud
-Explain it to the rubber duck
-Naming: Rubber Ducking
-0:50</p>
-<p>delete</p>
-<p>edit
-well-named boolean should sound like a true/false question</p>
-<p>not a command like start, open, status
-isOpen, done, isActive, loggedIn
-Naming: Naming Booleans
-0:14</p>
-<p>delete</p>
-<p>edit
-Use symmetrical names like on/off, fast/slow unlike quick/slow, on/disable</p>
-<p>Naming: Strive for Symmetry
-0:35</p>
-<p>delete</p>
-<p>edit
-Compare boolean implicitly, don't do</p>
-<p>if (loggedIn == true)
-Writing Conditionals That Convey Intent: Boolean Comparisons
-0:28</p>
-<p>delete</p>
-<p>edit
-Assign boolean implicitly, do:</p>
-<p>bool goingToChipotleForLunch = cashInWallet &gt; 6.00
-Writing Conditionals That Convey Intent: Boolean Assignments
-1:02</p>
-<p>delete</p>
-<p>edit
-Be positive (don't be anti-negative), don't do:</p>
-<p>if (!isNotLoggedIn)
-Writing Conditionals That Convey Intent: Prefer Positive Conditionals
-0:08</p>
-<p>delete</p>
-<p>edit
-Don't use chaining or nesting ternaries</p>
-<p>Writing Conditionals That Convey Intent: Ternaries Are Beautiful
-2:08</p>
-<p>delete</p>
-<p>edit
-Be strongly typed, not "stringly typed", don't</p>
-<p>if (employeeType == "manager")
-use enums and do
-if (employee.type == EmployeeType.Manager)
-Writing Conditionals That Convey Intent: Be Strongly Typed
-0:14</p>
-<p>delete</p>
-<p>edit
-Magic numbers are to be avoided because they require careful review of the context and they expect the reader to fill gaps</p>
-<p>Writing Conditionals That Convey Intent: Avoid Magic Numbers
-0:59</p>
-<p>delete</p>
-<p>edit
-Complex conditionals,</p>
-<p>Use intermediate variables
-Encapsulate via function
-Writing Conditionals That Convey Intent: Handling Complex Conditionals
-0:33</p>
-<p>delete</p>
-<p>edit
-Favor polymorphism over Switch statement.
-Each class knows how to handle its unique behaviors.</p>
-<p>Writing Conditionals That Convey Intent: Prefer Polymorphism over Enums
-1:31</p>
-<p>delete</p>
-<p>edit
-Function vs Method</p>
-<p>Both methods and functions are pieces of code, called by name.
-Methods are associated with an object
-Writing Clean Methods: When to Create a Function
-0:18</p>
-<p>delete</p>
-<p>edit
-When to create of function</p>
-<p>duplication
-indentation
-unclear intent
-help maintain single responsability
-Writing Clean Methods: When to Create a Function
-1:04</p>
-<p>delete</p>
-<p>edit
-Arrow code refers to excessive indentation levels.</p>
-<p>Arrow code is a sign that the code has a high cyclomatic complexity (a measure of the number of paths through code)
-Writing Clean Methods: Why Create a Method - Reason 2: Excessive Indentation
-0:14</p>
-<p>delete</p>
-<p>edit
-Fail fast</p>
-<p>Add guard clauses to throw an exception as soon as an unexpected situation that can't be handled occurs
-Guard clauses ensures a method inputs are valid before continuing processing.
-add default to switch statements and throw exceptions to fail fast
-Writing Clean Methods: Excessive Indentation - Solution 2: Fail Fast
-1:00</p>
-<p>delete</p>
-<p>edit
-"Use a return when it enhances readability... In certain routines, once you know the answer... not returning immediately means that you have to write more code."
-Steve McConnell, Code Complete</p>
-<p>Writing Clean Methods: Excessive Indentation - Solution 3: Return Early
-1:39</p>
-<p>delete</p>
-<p>edit
-A high number of parameters makes a function harder to understand. It's a sign the function is doing too much.
+<code>Explain it to the rubber duck</code></p>
+<h2 id="booleans">Booleans</h2>
+<h3 id="naming-booleans">Naming Booleans</h3>
+<p>Well-named boolean should sound like a true/false question:</p>
+<pre><code>isOpen, done, isActive, loggedIn
+</code></pre>
+<p>Not like a command:</p>
+<pre><code>start, open, status
+</code></pre>
+<h3 id="naming-strive-for-symmetry">Naming: Strive for Symmetry</h3>
+<p>Use symmetrical names like:</p>
+<pre><code>on/off, fast/slow
+</code></pre>
+<p>unlike:</p>
+<pre><code>quick/slow, on/disable
+</code></pre>
+<h3 id="boolean-comparison">Boolean Comparison</h3>
+<p>Compare boolean implicitly, don't do:</p>
+<pre><code class="language-csharp">if (loggedIn == true) { ... }
+</code></pre>
+<p>do:</p>
+<pre><code class="language-csharp">if (loggedIn) { ... }
+</code></pre>
+<h3 id="boolean-assignments">Boolean Assignments</h3>
+<p>Assign boolean implicitly, do:</p>
+<pre><code class="language-csharp">bool goingToChipotleForLunch = cashInWallet &gt; 6.00;
+</code></pre>
+<h3 id="write-positive-boolean-conditions">Write positive boolean conditions</h3>
+<p>Be positive (don't be anti-negative), don't do:</p>
+<pre><code class="language-csharp">if (!isNotLoggedIn)
+</code></pre>
+<h3 id="ternary-expressions">Ternary expressions</h3>
+<p>Don't use chaining or nesting ternaries</p>
+<h3 id="be-strongly-typed">Be Strongly Typed</h3>
+<p>Be strongly typed, not "stringly typed"</p>
+<p>Don't use strings:</p>
+<pre><code class="language-csharp">if (employeeType == &quot;manager&quot;) { ... }
+</code></pre>
+<p>Use enums:</p>
+<pre><code class="language-csharp">if (employee.type == EmployeeType.Manager) { ... }
+</code></pre>
+<h3 id="magic-numbers-magic-strings">Magic numbers, magic strings</h3>
+<p>Magic numbers/strings are to be avoided because they require careful review of the context and they expect the reader to fill gaps.</p>
+<h3 id="handling-complex-conditionals">Handling Complex Conditionals</h3>
+<ul>
+<li>Use intermediate variables</li>
+<li>Encapsulate via function</li>
+</ul>
+<h3 id="prefer-polymorphism-over-enums">Prefer Polymorphism over Enums</h3>
+<ul>
+<li>Favor polymorphism over Switch statement.</li>
+<li>Each class knows how to handle its unique behaviors.</li>
+</ul>
+<h2 id="clean-methods-and-functions">Clean methods and functions</h2>
+<h3 id="function-vs-method">Function vs Method</h3>
+<p>Both methods and functions are pieces of code, called by name. Methods are associated with an object.</p>
+<h3 id="when-to-create-of-function">When to create of function?</h3>
+<ul>
+<li>Duplication</li>
+<li>Indentation</li>
+<li>Unclear intent</li>
+<li>Help maintain single responsability</li>
+</ul>
+<h3 id="arrow-code">Arrow Code</h3>
+<p>Arrow code refers to excessive indentation levels. Arrow code is a sign that the code has a high cyclomatic complexity (a measure of the number of paths through code).</p>
+<h3 id="fail-fast">Fail fast</h3>
+<ol>
+<li>Add guard clauses to throw an exception as soon as an unexpected situation that can't be handled occurs.</li>
+<li>Guard clauses ensures a method inputs are valid before continuing processing.</li>
+<li>Add default to switch statements and throw exceptions to fail fast</li>
+</ol>
+<h3 id="return-early">Return early</h3>
+<blockquote>
+<p>"Use a return when it enhances readability... In certain routines, once you know the answer... not returning immediately means that you have to write more code."
+<em>Code Complete, Steve McConnell</em></p>
+</blockquote>
+<h3 id="parameters">Parameters</h3>
+<p>A high number of parameters makes a function harder to understand. It's a sign the function is doing too much.
 Strive for 0-2 parameters, this will make the code easier to read, understand and test.</p>
-<p>Writing Clean Methods: How Many Parameters?
-0:07</p>
-<p>delete</p>
-<p>edit
-Sign a function is too long:</p>
-<p>Whitespace and comments
-Scrolling required
-Easy to name with a single define task
-Multiple conditionals
-Many layers of abstraction
-Writing Clean Methods: Signs a Method Is too Long
-0:32</p>
-<p>delete</p>
-<p>edit
-Exception types</p>
-<p>Unrecoverable
-Null reference
-File not found
-Access denied
-Recoverable
-Retry connection
-Try a different file
-Wait and try again
-Ignorable
-Logging
-The correct behavior for a broken application is to crash immediately.</p>
-<p>Fail fast. Fail loud
-Writing Clean Methods: Handling Exceptions
-0:26</p>
-<p>delete</p>
-<p>edit
-When to create a class</p>
-<p>New concept : abstract or real world
-Low cohesion : methods should relate
-Promote reuse : small and targeted
-Reduce complexity : solve once, hide away the complexity
-Clarify parameters : Identify a group of data
-Writing Clean Classes: When to Create a Class
-1:12</p>
-<p>delete</p>
-<p>edit
-Proximity Principle</p>
-<p>Make code read top to bottom when possible
-Keep related actions together
-Writing Clean Classes: The Proximity Principle
-0:53</p>
-<p>delete</p>
-<p>edit
-The boy scout rule:
-Leave the code you're editing a little better than you found it
-Robert C. Martin</p>
-                
-                  
+<h3 id="signs-a-method-is-too-long">Signs a Method Is too Long</h3>
+<ul>
+<li>Whitespace and comments</li>
+<li>Scrolling required</li>
+<li>Easy to name with a single define task</li>
+<li>Multiple conditionals</li>
+<li>Many layers of abstraction</li>
+</ul>
+<h2 id="handling-exceptions">Handling Exceptions</h2>
+<p>Exception types:</p>
+<h3 id="1-unrecoverable">1. Unrecoverable</h3>
+<ul>
+<li>Null reference</li>
+<li>File not found</li>
+<li>Access denied</li>
+</ul>
+<h3 id="2-recoverable">2. Recoverable</h3>
+<ul>
+<li>Retry connection</li>
+<li>Try a different file</li>
+<li>Wait and try again</li>
+</ul>
+<h3 id="3-ignorable">3. Ignorable</h3>
+<ul>
+<li>Logging</li>
+</ul>
+<p>The correct behavior for a broken application is to crash immediately.
+<code>Fail fast. Fail loud</code></p>
+<h2 id="clean-classes">Clean classes</h2>
+<h3 id="when-to-create-a-class">When to Create a Class?</h3>
+<ul>
+<li>New concept : abstract or real world</li>
+<li>Low cohesion : methods should relate</li>
+<li>Promote reuse : small and targeted</li>
+<li>Reduce complexity : solve once, hide away the complexity</li>
+<li>Clarify parameters : Identify a group of data</li>
+</ul>
+<h3 id="proximity-principle">Proximity Principle</h3>
+<ul>
+<li>Make code read top to bottom when possible</li>
+<li>Keep related actions together</li>
+</ul>
+<h2 id="the-boy-scout-rule">The boy scout rule</h2>
+<blockquote>
+<p>"Leave the code you're editing a little better than you found it"
+<em>Clean Code, Robert C. Martin</em></p>
+</blockquote>
                 
               
               
@@ -562,10 +845,10 @@ Robert C. Martin</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>
